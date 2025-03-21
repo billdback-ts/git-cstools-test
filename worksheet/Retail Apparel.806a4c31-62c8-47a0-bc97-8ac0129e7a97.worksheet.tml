@@ -1,0 +1,111 @@
+guid: 806a4c31-62c8-47a0-bc97-8ac0129e7a97
+model:
+  name: Retail Apparel
+  description: The "Retail Apparel" worksheet provides a comprehensive overview of sales data for a retail clothing business. It captures detailed information about each transaction, including the location of the sale, the specific products sold, and the quantity purchased. Additionally, it includes geographical data and the date of each record, allowing for analysis of sales trends over time and across different regions. (AI generated)
+  model_tables:
+  - name: DIM_RETAPP_PRODUCTS
+    fqn: 41aa7d50-5c4d-43eb-aa0c-ae4689e5976e
+  - name: DIM_RETAPP_STORES
+    fqn: b8a9cc93-99cd-4f59-94e6-f179c1dd1925
+  - name: FACT_RETAPP_SALES
+    fqn: d5d6f60d-993a-478d-ba03-d9d64e0a239e
+    joins:
+    - with: DIM_RETAPP_PRODUCTS
+      referencing_join: C_DIM_RETAPP_PRODUCTS
+    - with: DIM_RETAPP_STORES
+      referencing_join: C_DIM_RETAPP_STORES
+  columns:
+  - name: Productid
+    column_id: DIM_RETAPP_PRODUCTS::PRODUCTID
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Productname
+    column_id: DIM_RETAPP_PRODUCTS::PRODUCTNAME
+    properties:
+      column_type: ATTRIBUTE
+  - name: Producttype
+    column_id: DIM_RETAPP_PRODUCTS::PRODUCTTYPE
+    properties:
+      column_type: ATTRIBUTE
+  - name: City
+    column_id: DIM_RETAPP_STORES::CITY
+    properties:
+      column_type: ATTRIBUTE
+  - name: County
+    column_id: DIM_RETAPP_STORES::COUNTY
+    properties:
+      column_type: ATTRIBUTE
+  - name: Latitude
+    column_id: DIM_RETAPP_STORES::LATITUDE
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Longitude
+    column_id: DIM_RETAPP_STORES::LONGITUDE
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Region
+    column_id: DIM_RETAPP_STORES::REGION
+    properties:
+      column_type: ATTRIBUTE
+  - name: State
+    column_id: DIM_RETAPP_STORES::STATE
+    properties:
+      column_type: ATTRIBUTE
+      geo_config:
+        region_name:
+          country: UNITED STATES
+          region_name: state
+  - name: Storeid
+    column_id: DIM_RETAPP_STORES::STOREID
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Storename
+    column_id: DIM_RETAPP_STORES::STORENAME
+    properties:
+      column_type: ATTRIBUTE
+  - name: Zipcode
+    column_id: DIM_RETAPP_STORES::ZIPCODE
+    properties:
+      column_type: ATTRIBUTE
+  - name: Itemprice
+    column_id: FACT_RETAPP_SALES::ITEMPRICE
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Quantitypurchased
+    column_id: FACT_RETAPP_SALES::QUANTITYPURCHASED
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Recorddate
+    column_id: FACT_RETAPP_SALES::RECORDDATE
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Sales
+    column_id: FACT_RETAPP_SALES::SALES
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Salesid
+    column_id: FACT_RETAPP_SALES::SALESID
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  properties:
+    is_bypass_rls: false
+    join_progressive: true
+    sage_config:
+      is_sage_enabled: true

@@ -1,0 +1,143 @@
+guid: 92f8a3f2-1883-443d-a5e6-8b3e54d0929b
+liveboard:
+  name: Retail Sales
+  visualizations:
+  - id: Viz_1
+    answer:
+      name: Total Sales
+      tables:
+      - id: Retail Apparel
+        name: Retail Apparel
+        fqn: 806a4c31-62c8-47a0-bc97-8ac0129e7a97
+      search_query: "sum [Sales]"
+      answer_columns:
+      - name: Total Sales
+      table:
+        table_columns:
+        - column_id: Total Sales
+          show_headline: false
+        ordered_column_ids:
+        - Total Sales
+        client_state: ""
+      chart:
+        type: KPI
+        chart_columns:
+        - column_id: Total Sales
+        axis_configs:
+        - "y":
+          - Total Sales
+        client_state: ""
+      display_mode: CHART_MODE
+    viz_guid: c1fff35c-5ebe-4e25-aebf-ad34e176a3f7
+  - id: Viz_2
+    answer:
+      name: Total Quantitypurchased
+      tables:
+      - id: Retail Apparel
+        name: Retail Apparel
+        fqn: 806a4c31-62c8-47a0-bc97-8ac0129e7a97
+      search_query: "sum [Quantitypurchased]"
+      answer_columns:
+      - name: Total Quantitypurchased
+      table:
+        table_columns:
+        - column_id: Total Quantitypurchased
+          show_headline: false
+        ordered_column_ids:
+        - Total Quantitypurchased
+        client_state: ""
+      chart:
+        type: KPI
+        chart_columns:
+        - column_id: Total Quantitypurchased
+        axis_configs:
+        - "y":
+          - Total Quantitypurchased
+        client_state: ""
+      display_mode: CHART_MODE
+    viz_guid: 4ff3c9ce-0915-4ba5-aa3d-9fa2e466d585
+  - id: Viz_3
+    answer:
+      name: "Total Sales, Total Quantitypurchased by Producttype"
+      tables:
+      - id: Retail Apparel
+        name: Retail Apparel
+        fqn: 806a4c31-62c8-47a0-bc97-8ac0129e7a97
+      search_query: "[Sales] [Quantitypurchased] [Producttype]"
+      answer_columns:
+      - name: Producttype
+      - name: Total Quantitypurchased
+      - name: Total Sales
+      table:
+        table_columns:
+        - column_id: Producttype
+          show_headline: false
+        - column_id: Total Quantitypurchased
+          show_headline: false
+        - column_id: Total Sales
+          show_headline: false
+        ordered_column_ids:
+        - Producttype
+        - Total Sales
+        - Total Quantitypurchased
+        client_state: ""
+      chart:
+        type: COLUMN
+        chart_columns:
+        - column_id: Producttype
+        - column_id: Total Quantitypurchased
+        - column_id: Total Sales
+        axis_configs:
+        - x:
+          - Producttype
+          "y":
+          - Total Sales
+          - Total Quantitypurchased
+        client_state: ""
+      display_mode: CHART_MODE
+    viz_guid: 1b03c344-9000-47fb-90f1-7436b2a2001a
+  - id: Viz_4
+    answer:
+      name: "Total Sales, Total Quantitypurchased by Weekly Recorddate"
+      tables:
+      - id: Retail Apparel
+        name: Retail Apparel
+        fqn: 806a4c31-62c8-47a0-bc97-8ac0129e7a97
+      search_query: "[Sales] [Quantitypurchased] [Recorddate].weekly [Producttype]"
+      answer_columns:
+      - name: Producttype
+      - name: Total Quantitypurchased
+      - name: Total Sales
+      - name: Week(Recorddate)
+      table:
+        table_columns:
+        - column_id: Producttype
+          show_headline: false
+        - column_id: Total Quantitypurchased
+          show_headline: false
+        - column_id: Total Sales
+          show_headline: false
+        - column_id: Week(Recorddate)
+          show_headline: false
+        ordered_column_ids:
+        - Week(Recorddate)
+        - Producttype
+        - Total Sales
+        - Total Quantitypurchased
+        client_state: ""
+      chart:
+        type: LINE
+        chart_columns:
+        - column_id: Producttype
+        - column_id: Total Quantitypurchased
+        - column_id: Total Sales
+        - column_id: Week(Recorddate)
+        axis_configs:
+        - x:
+          - Week(Recorddate)
+          "y":
+          - Total Sales
+          - Total Quantitypurchased
+        client_state: ""
+      display_mode: CHART_MODE
+    viz_guid: 13105db4-62fc-44cd-9bf6-71723cd9c24a

@@ -1,0 +1,17 @@
+guid: 81359423-cf3e-43fa-a87b-d57ae8393058
+connection:
+  name: Retail Data
+  type: RDBMS_SNOWFLAKE
+  authentication_type: SERVICE_ACCOUNT
+  properties:
+  - key: accountName
+    value: thoughtspot_partner
+  - key: user
+    value: se_demo
+  - key: password
+    value: ""
+  - key: role
+    value: SE_ROLE
+  - key: warehouse
+    value: SE_DEMO_WH
+  description: Retail data for git testing.
